@@ -36,7 +36,7 @@ function formatDate(value: string) {
 }
 
 const field =
-  "w-full rounded-xl border border-cocoa/15 bg-white/70 px-4 py-3.5 text-cocoa placeholder:text-mocha/60 outline-none transition-[border-color,box-shadow] duration-300 focus:border-rose focus:shadow-[0_0_0_4px_rgb(176_74_98/0.12)]";
+  "block w-full min-w-0 max-w-full min-h-[3.25rem] appearance-none rounded-xl border border-cocoa/15 bg-white/70 px-4 py-3.5 text-cocoa placeholder:text-mocha/60 outline-none transition-[border-color,box-shadow] duration-300 focus:border-rose focus:shadow-[0_0_0_4px_rgb(176_74_98/0.12)]";
 const chip =
   "cursor-pointer select-none rounded-full border px-4 py-2 text-sm transition-[background-color,border-color,color,transform] duration-300 active:scale-[0.97]";
 const chipOff = "border-cocoa/15 bg-white/60 hover:border-rose/60";

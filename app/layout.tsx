@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="it" className={`${anton.variable} ${manrope.variable} ${pinyon.variable} antialiased`}>
+    <html lang="it" data-scroll-behavior="smooth" className={`${anton.variable} ${manrope.variable} ${pinyon.variable} antialiased`}>
       <body className="font-sans">{children}</body>
     </html>
   );

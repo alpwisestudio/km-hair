@@ -28,12 +28,12 @@ export default function Prenota() {
       </header>
 
       <main className="bg-gradient-to-b from-cream via-blush/50 to-cream px-5 pb-24 pt-10 sm:px-8 lg:pt-16">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
           <div className="lg:sticky lg:top-10 lg:self-start">
             <div className="enter" style={{ "--i": 1 } as React.CSSProperties}>
               <Label>Prenota</Label>
             </div>
-            <h1 className="mt-5 font-display text-6xl uppercase leading-[0.92] sm:text-7xl">
+            <h1 className="mt-5 font-display text-[12vw] uppercase leading-[0.92] sm:text-7xl">
               <span className="block overflow-hidden pb-1">
                 <span className="enter-line block" style={{ "--i": 2 } as React.CSSProperties}>
                   Il tuo
