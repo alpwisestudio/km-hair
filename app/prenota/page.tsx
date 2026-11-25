@@ -20,14 +20,14 @@ export default function Prenota() {
           </Link>
           <Link
             href="/"
-            className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] transition-colors duration-300 hover:text-rose"
+            className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] transition-colors duration-300 hover:text-slate"
           >
             <Arrow back /> Torna al sito
           </Link>
         </div>
       </header>
 
-      <main className="bg-gradient-to-b from-cream via-blush/50 to-cream px-5 pb-24 pt-10 sm:px-8 lg:pt-16">
+      <main className="bg-gradient-to-b from-paper via-mist/50 to-paper px-5 pb-24 pt-10 sm:px-8 lg:pt-16">
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
           <div className="lg:sticky lg:top-10 lg:self-start">
             <div className="enter" style={{ "--i": 1 } as React.CSSProperties}>
@@ -40,12 +40,12 @@ export default function Prenota() {
                 </span>
               </span>
               <span className="block overflow-hidden pb-1">
-                <span className="enter-line block text-rose" style={{ "--i": 3 } as React.CSSProperties}>
+                <span className="enter-line block text-slate" style={{ "--i": 3 } as React.CSSProperties}>
                   appuntamento.
                 </span>
               </span>
             </h1>
-            <p className="enter mt-6 max-w-sm text-mocha" style={{ "--i": 4 } as React.CSSProperties}>
+            <p className="enter mt-6 max-w-sm text-stone" style={{ "--i": 4 } as React.CSSProperties}>
               Compila il modulo: ti richiamiamo per confermare giorno e orario. Se preferisci, chiamaci direttamente.
             </p>
 
@@ -54,8 +54,8 @@ export default function Prenota() {
                 {salon.phones.map((p) => (
                   <li key={p.href}>
                     <a href={p.href} className="group flex items-baseline gap-4">
-                      <span className="w-20 text-sm text-mocha">{p.label}</span>
-                      <span className="font-display text-2xl tracking-wide transition-colors duration-300 group-hover:text-rose">
+                      <span className="w-20 text-sm text-stone">{p.label}</span>
+                      <span className="font-display text-2xl tracking-wide transition-colors duration-300 group-hover:text-slate">
                         {p.display}
                       </span>
                     </a>
@@ -63,8 +63,8 @@ export default function Prenota() {
                 ))}
               </ul>
 
-              <div className="max-w-xs rounded-2xl bg-white/60 p-5 ring-1 ring-cocoa/5">
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-mocha">Orari</p>
+              <div className="max-w-xs rounded-2xl bg-white/60 p-5 ring-1 ring-ink/5">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-stone">Orari</p>
                 <table className="w-full text-sm">
                   <caption className="sr-only">Orari di apertura</caption>
                   <tbody>
@@ -73,7 +73,7 @@ export default function Prenota() {
                         <th scope="row" className="py-1 text-left font-medium">
                           {h.label}
                         </th>
-                        <td className={`py-1 text-right tabular-nums ${h.open ? "" : "text-mocha"}`}>
+                        <td className={`py-1 text-right tabular-nums ${h.open ? "" : "text-stone"}`}>
                           {h.open ? `${h.open} – ${h.close}` : "Chiuso"}
                         </td>
                       </tr>
@@ -82,7 +82,7 @@ export default function Prenota() {
                 </table>
               </div>
 
-              <p className="text-sm text-mocha">
+              <p className="text-sm text-stone">
                 {salon.address.street}, {salon.address.zip} {salon.address.city} ({salon.address.province})
               </p>
             </div>

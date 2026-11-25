@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Manrope, Pinyon_Script } from "next/font/google";
+import { Anton, Manrope } from "next/font/google";
 import "./globals.css";
 
 const anton = Anton({ variable: "--font-anton", weight: "400", subsets: ["latin"] });
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
-const pinyon = Pinyon_Script({ variable: "--font-pinyon", weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "KM Hair Beauty & Barber · Parrucchiere e barbiere a Cassano Magnago",
@@ -15,12 +14,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbf1ec",
+  themeColor: "#f3f3f1",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="it" data-scroll-behavior="smooth" className={`${anton.variable} ${manrope.variable} ${pinyon.variable} antialiased`}>
+    <html lang="it" data-scroll-behavior="smooth" className={`${anton.variable} ${manrope.variable} antialiased`}>
       <body className="font-sans">{children}</body>
     </html>
   );

@@ -3,11 +3,8 @@ import { salon } from "./content";
 export const mainPhone = salon.phones[0];
 
 export function Sparkle({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={`inline-block h-3.5 w-3.5 fill-current ${className}`}>
-      <path d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0Z" />
-    </svg>
-  );
+  // Segno grafico minimo: un trattino
+  return <span aria-hidden="true" className={`inline-block h-px w-4 bg-current align-middle ${className}`} />;
 }
 
 export function Arrow({ back = false }: { back?: boolean }) {
@@ -26,18 +23,18 @@ export function Arrow({ back = false }: { back?: boolean }) {
 
 export function Label({ children }: { children: React.ReactNode }) {
   return (
-    <p className="inline-flex items-center gap-2 rounded-full bg-blush px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-cocoa">
+    <p className="inline-flex items-center gap-2 rounded-full bg-mist px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-ink">
       {children}
-      <Sparkle className="text-rose" />
+      <Sparkle className="text-slate" />
     </p>
   );
 }
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <span className={`flex flex-col leading-none ${light ? "text-cream" : "text-cocoa"}`}>
+    <span className={`flex flex-col leading-none ${light ? "text-paper" : "text-ink"}`}>
       <span className="font-display text-3xl tracking-[0.12em]">KM HAIR</span>
-      <span className={`-mt-1 pl-6 font-script text-xl ${light ? "text-pink" : "text-rose"}`}>
+      <span className={`mt-1.5 text-[0.6rem] font-bold uppercase tracking-[0.42em] ${light ? "text-silver" : "text-stone"}`}>
         Beauty &amp; Barber
       </span>
     </span>
@@ -46,17 +43,17 @@ export function Logo({ light = false }: { light?: boolean }) {
 
 export function Footer() {
   return (
-    <footer className="bg-[#1d1210] px-5 pb-28 pt-12 text-cream sm:px-8 sm:pb-10">
+    <footer className="bg-[#151617] px-5 pb-28 pt-12 text-paper sm:px-8 sm:pb-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <Logo light />
-        <p className="text-sm text-cream/70">
+        <p className="text-sm text-paper/70">
           {salon.address.street}, {salon.address.city} ·{" "}
-          <a href={mainPhone.href} className="hover:text-pink">
+          <a href={mainPhone.href} className="hover:text-silver">
             {mainPhone.display}
           </a>
         </p>
-        <p className="text-xs text-cream/70">
-          <span className="mr-2 rounded bg-pink px-2 py-0.5 font-bold uppercase tracking-wider text-cocoa">Anteprima</span>
+        <p className="text-xs text-paper/70">
+          <span className="mr-2 rounded bg-silver px-2 py-0.5 font-bold uppercase tracking-wider text-ink">Anteprima</span>
           Proposta realizzata da Alpwise Studio
         </p>
       </div>

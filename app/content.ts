@@ -1,5 +1,7 @@
 // Tutti i testi e i dati del sito in un unico file.
-// Fonte: dati forniti dal cliente / scheda Google (nov 2026). Non aggiungere numeri o recensioni non verificati.
+// Fonti: scheda Google e pagina Treatwell del salone (nov 2026). Non aggiungere numeri o recensioni non verificati.
+// ATTENZIONE: gli orari di Treatwell sono diversi da quelli di Google (es. mer 14–19, ven 9–20:30).
+// Qui ci sono quelli di Google: da confermare con il salone.
 
 export const salon = {
   name: "KM Hair",
@@ -42,7 +44,17 @@ export const services = [
     lead: "Taglio, piega e colore.",
     photo: "hair",
     alt: "Capelli lunghi con riflessi, su maglia nera (foto segnaposto)",
-    items: ["Taglio e styling", "Colore", "Ricostruzione del capello", "Trattamenti Olaplex", "Prodotti GHD e L'Oréal"],
+    items: [
+      "Taglio donna",
+      "Taglio bambini e ragazzi",
+      "Piega e acconciatura",
+      "Colore",
+      "Colpi di sole e schiariture",
+      "Extension",
+      "Permanente",
+      "Trattamenti cute e capello",
+      "Ricostruzione e Olaplex",
+    ],
   },
   {
     id: "barber",
@@ -50,7 +62,7 @@ export const services = [
     lead: "Degradè e cura della barba.",
     photo: "barber",
     alt: "Barbiere che rifinisce un taglio con il rasoio (foto segnaposto)",
-    items: ["Degradè specialist", "Taglio uomo", "Trattamenti barba", "Styling"],
+    items: ["Degradè specialist", "Taglio uomo", "Taglio barba", "Trattamenti barba", "Styling"],
   },
   {
     id: "beauty",
@@ -64,11 +76,60 @@ export const services = [
       "Epilazione",
       "Trattamenti viso e corpo",
       "Ciglia e sopracciglia",
-      "Make-up",
+      "Make-up e trucco semipermanente",
       "Armocromia",
+      "Consulenza",
     ],
   },
 ];
+
+// Prezzi e durate dal listino Treatwell ("Servizi più richiesti"). Da confermare con il salone.
+export const priceList = [
+  { name: "Taglio uomo", time: "30 min", price: "€ 20" },
+  { name: "Taglio + asciugatura", time: "45 min – 1 ora", price: "da € 27" },
+  { name: "Piega", time: "30 – 45 min", price: "da € 17" },
+  { name: "Piega con piastra", time: "45 min", price: "€ 27" },
+  { name: "Shampoo e asciugatura", time: "15 – 30 min", price: "da € 5" },
+  { name: "Shampoo speciale + maschera", time: "30 min", price: "€ 10" },
+  { name: "Schiariture, colpi di sole e piega", time: "1 ora 30 – 2 ore 15", price: "da € 52" },
+];
+
+// Valutazioni pubbliche su Treatwell (recensioni verificate)
+export const rating = {
+  score: "4,8",
+  count: 274,
+  source: "Treatwell",
+  award: "Top Rated 2023",
+};
+
+export const team = [
+  { name: "Mary", role: "Stilista", score: "4,8", reviews: 72 },
+  { name: "Ketti", role: "Stilista", score: "4,9", reviews: 42 },
+];
+
+// Recensioni vere da Treatwell, testo originale. Nome come compare sulla piattaforma.
+export const reviews = [
+  {
+    text: "Gentilezza simpatia e professionalità. Non c'è stata una volta che non sia uscita soddisfatta del lavoro fatto \"sulla mia testa\" da Mary o Ketty. Bravissime!",
+    author: "Flavia",
+    service: "Decolorazione donna",
+    stars: 5,
+  },
+  {
+    text: "Totalmente eccellente come sempre del resto.",
+    author: "Fabio",
+    service: "Taglio barba",
+    stars: 5,
+  },
+  {
+    text: "Il top come sempre.",
+    author: "Oriana T.",
+    service: "Ritocco colore",
+    stars: 5,
+  },
+];
+
+export const transport = "Fermata bus Cassano Magnago – Via 5 Giornate angolo Via Mazzini";
 
 export const specialties = [
   {
@@ -102,7 +163,7 @@ export const amenities = [
 
 // Foto in /public/foto: per ora segnaposto Unsplash (vedi public/foto/CREDITS.md), da sostituire con foto reali del salone.
 export const gallery = [
-  { photo: "salone-1", alt: "Interno di un salone con poltrone e specchi (foto segnaposto)" },
+  { photo: "salone-1", alt: "Le postazioni del salone KM Hair: pareti grigie, specchi e poltrone nere" },
   { photo: "salone-2", alt: "Parrucchiera che asciuga i capelli con la spazzola (foto segnaposto)" },
   { photo: "salone-3", alt: "Barbiere che rifinisce la barba con le forbici (foto segnaposto)" },
   { photo: "salone-4", alt: "Unghie nere e tartarugate con anello dorato (foto segnaposto)" },

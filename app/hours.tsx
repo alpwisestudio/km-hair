@@ -33,12 +33,12 @@ export function Hours() {
       <p className="mb-5 h-6 text-sm font-semibold uppercase tracking-[0.2em]" aria-live="polite">
         {now &&
           (isOpen ? (
-            <span className="inline-flex items-center gap-2.5 text-pink">
-              <span className="pulse-dot h-2 w-2 rounded-full bg-pink" aria-hidden="true" />
+            <span className="inline-flex items-center gap-2.5 text-silver">
+              <span className="pulse-dot h-2 w-2 rounded-full bg-silver" aria-hidden="true" />
               Aperto ora · fino alle {today!.close}
             </span>
           ) : (
-            <span className="text-cream/70">● Chiuso in questo momento</span>
+            <span className="text-paper/70">● Chiuso in questo momento</span>
           ))}
       </p>
       <table className="w-full text-left">
@@ -49,14 +49,14 @@ export function Hours() {
             return (
               <tr
                 key={h.day}
-                className={`border-b border-cream/15 ${isToday ? "text-pink" : "text-cream"}`}
+                className={`border-b border-paper/15 ${isToday ? "text-silver" : "text-paper"}`}
               >
                 <th scope="row" className="py-3 font-medium">
                   {h.label}
                   {isToday && <span className="ml-2 text-xs uppercase tracking-widest">oggi</span>}
                 </th>
                 <td className="py-3 text-right tabular-nums">
-                  {h.open ? `${h.open} – ${h.close}` : <span className="text-cream/60">Chiuso</span>}
+                  {h.open ? `${h.open} – ${h.close}` : <span className="text-paper/60">Chiuso</span>}
                 </td>
               </tr>
             );

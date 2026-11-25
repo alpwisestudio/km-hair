@@ -30,11 +30,11 @@ Se un file manca, al suo posto compare un riquadro neutro con il monogramma "KM"
 
 Sono tutte in `app/globals.css`, solo CSS: entrata scaglionata dell'hero, comparsa delle sezioni allo scroll
 (`.reveal`, con animazioni legate allo scroll; sui browser che non le supportano il contenuto resta visibile),
-header che diventa pieno allo scroll e micro-interazioni sui bottoni. Con "riduci movimento" attivo sono tutte spente.
+parallasse leggera sulla foto principale e micro-interazioni sui bottoni. L'header ha sempre il suo sfondo chiaro, così resta leggibile su qualsiasi foto. Con "riduci movimento" attivo sono tutte spente.
 
 | File | Dove compare |
 |------|--------------|
-| `hero` | Hero, a destra (verticale) |
+| `hero-luce` | Hero, a destra (verticale) |
 | `hair` | Card servizi "Hair" |
 | `barber` | Card servizi "Barber" (un degradè) |
 | `beauty` | Card servizi "Beauty" (nail art o trucco) |
@@ -44,6 +44,11 @@ Fonti: profilo Google Maps, Instagram e Facebook del salone. Vanno bene per un m
 
 ## Da verificare con il salone
 
-- Colori: la palette segue il riferimento di stile, non è ancora presa da insegna o logo.
-- Recensioni e link social: non inseriti, perché non ancora raccolti.
+- Colori: grigi presi dalle foto del salone (pareti grigie, arredi bianchi, poltrone nere, parquet chiaro). Da confrontare con logo e insegna.
+- Orari: Google e Treatwell non coincidono (Treatwell: mar/gio/sab 9–17:30, mer 14–19, ven 9–20:30). Sul sito ci sono quelli di Google, in app/content.ts.
+- Prezzi: presi dal listino Treatwell ("Servizi più richiesti"); da confermare.
+- Recensioni: 3 recensioni vere da Treatwell con nome e servizio; valutazione 4,8 su 274 recensioni e premio Top Rated 2023.
+- Nome della stilista: su Treatwell è "Ketti", nelle recensioni e nell'email "Ketty". Da chiedere quale usare.
+- Prenotazione online: il salone è già su Treatwell; il modulo /prenota potrebbe rimandare lì.
+- Link social: non inseriti, perché non ancora raccolti.
 - Il numero di cellulare è l'azione principale ("Chiama"); va confermato quale numero preferiscono e se usano WhatsApp.

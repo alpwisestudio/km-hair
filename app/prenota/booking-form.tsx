@@ -36,15 +36,15 @@ function formatDate(value: string) {
 }
 
 const field =
-  "block w-full min-w-0 max-w-full min-h-[3.25rem] appearance-none rounded-xl border border-cocoa/15 bg-white/70 px-4 py-3.5 text-cocoa placeholder:text-mocha/60 outline-none transition-[border-color,box-shadow] duration-300 focus:border-rose focus:shadow-[0_0_0_4px_rgb(176_74_98/0.12)]";
+  "block w-full min-w-0 max-w-full min-h-[3.25rem] appearance-none rounded-xl border border-ink/15 bg-white/70 px-4 py-3.5 text-ink placeholder:text-stone/60 outline-none transition-[border-color,box-shadow] duration-300 focus:border-slate focus:shadow-[0_0_0_4px_rgb(30_32_34/0.10)]";
 const chip =
   "cursor-pointer select-none rounded-full border px-4 py-2 text-sm transition-[background-color,border-color,color,transform] duration-300 active:scale-[0.97]";
-const chipOff = "border-cocoa/15 bg-white/60 hover:border-rose/60";
-const chipOn = "border-cocoa bg-cocoa text-cream";
+const chipOff = "border-ink/15 bg-white/60 hover:border-slate/60";
+const chipOn = "border-ink bg-ink text-paper";
 
 function ErrorText({ id, msg }: { id: string; msg?: string }) {
   return msg ? (
-    <p id={id} className="mt-2 text-sm font-medium text-rose">
+    <p id={id} className="mt-2 text-sm font-medium text-slate">
       {msg}
     </p>
   ) : null;
@@ -111,39 +111,39 @@ export function BookingForm() {
       `Richiesta di appuntamento - ${name}`,
     )}&body=${encodeURIComponent(summary.join("\n"))}`;
     return (
-      <div className="fade-in rounded-3xl bg-white/70 p-7 shadow-[0_30px_80px_-40px_rgb(42_26_22/0.35)] sm:p-10" role="status">
-        <div className="grid h-14 w-14 place-items-center rounded-full bg-pink text-cocoa">
+      <div className="fade-in rounded-3xl bg-white/70 p-7 shadow-[0_30px_80px_-40px_rgb(30_32_34/0.35)] sm:p-10" role="status">
+        <div className="grid h-14 w-14 place-items-center rounded-full bg-silver text-ink">
           <svg viewBox="0 0 24 24" className="draw h-7 w-7 fill-none stroke-current stroke-[2.5]" aria-hidden="true">
             <path d="M5 12.5l4.5 4.5L19 7.5" />
           </svg>
         </div>
         <h2 className="mt-6 font-display text-4xl uppercase leading-none sm:text-5xl">Richiesta pronta</h2>
-        <p className="mt-3 max-w-md text-mocha">
+        <p className="mt-3 max-w-md text-stone">
           Grazie {name.split(" ")[0]}! Ti richiamiamo al {phone} per confermare giorno e orario.
         </p>
-        <ul className="mt-6 space-y-2 border-y border-cocoa/10 py-5 text-sm">
+        <ul className="mt-6 space-y-2 border-y border-ink/10 py-5 text-sm">
           {summary.map((l) => (
             <li key={l}>{l}</li>
           ))}
         </ul>
-        <p className="mt-5 rounded-xl bg-blush/70 px-4 py-3 text-sm text-mocha">
-          <strong className="text-cocoa">Anteprima:</strong> in questa versione il modulo non è ancora collegato al
+        <p className="mt-5 rounded-xl bg-mist/70 px-4 py-3 text-sm text-stone">
+          <strong className="text-ink">Anteprima:</strong> in questa versione il modulo non è ancora collegato al
           salone. Per ora puoi inviare la richiesta via email o chiamare.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <a href={mailto} className="btn rounded-full bg-cocoa px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-cream">
+          <a href={mailto} className="btn rounded-full bg-ink px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-paper">
             Invia via email
           </a>
           <a
             href={salon.phones[0].href}
-            className="btn rounded-full bg-pink px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-cocoa"
+            className="btn rounded-full bg-silver px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-ink"
           >
             Chiama {salon.phones[0].display}
           </a>
           <button
             type="button"
             onClick={() => setSent(false)}
-            className="px-2 py-3.5 text-xs font-bold uppercase tracking-[0.16em] underline decoration-rose underline-offset-4"
+            className="px-2 py-3.5 text-xs font-bold uppercase tracking-[0.16em] underline decoration-slate underline-offset-4"
           >
             Modifica
           </button>
@@ -156,25 +156,25 @@ export function BookingForm() {
     <form
       noValidate
       onSubmit={onSubmit}
-      className="space-y-9 rounded-3xl bg-white/50 p-6 shadow-[0_30px_80px_-40px_rgb(42_26_22/0.35)] ring-1 ring-cocoa/5 sm:p-10"
+      className="space-y-9 rounded-3xl bg-white/50 p-6 shadow-[0_30px_80px_-40px_rgb(30_32_34/0.35)] ring-1 ring-ink/5 sm:p-10"
     >
       {/* 1. Servizi */}
       <fieldset aria-describedby={errors.servizi ? "e-servizi" : undefined}>
         <legend className="flex items-baseline gap-3 font-display text-2xl uppercase">
-          <span className="text-rose">01</span> Cosa vuoi fare?
+          <span className="text-slate">01</span> Cosa vuoi fare?
         </legend>
-        <p className="mt-1 text-sm text-mocha">Puoi sceglierne più di uno.</p>
+        <p className="mt-1 text-sm text-stone">Puoi sceglierne più di uno.</p>
         <div className="mt-5 space-y-5">
           {services.map((s, gi) => (
             <div key={s.id}>
-              <p className="mb-2.5 text-xs font-bold uppercase tracking-[0.18em] text-mocha">{s.title}</p>
+              <p className="mb-2.5 text-xs font-bold uppercase tracking-[0.18em] text-stone">{s.title}</p>
               <div className="flex flex-wrap gap-2">
                 {s.items
                   .filter((i) => !i.startsWith("Prodotti"))
                   .map((i, ii) => {
                     const on = selected.includes(i);
                     return (
-                      <label key={i} className={`${chip} ${on ? chipOn : chipOff} has-focus-visible:ring-2 has-focus-visible:ring-rose`}>
+                      <label key={i} className={`${chip} ${on ? chipOn : chipOff} has-focus-visible:ring-2 has-focus-visible:ring-slate`}>
                         <input
                           id={gi === 0 && ii === 0 ? "f-servizi" : undefined}
                           type="checkbox"
@@ -196,9 +196,9 @@ export function BookingForm() {
       {/* 2. Quando */}
       <fieldset>
         <legend className="flex items-baseline gap-3 font-display text-2xl uppercase">
-          <span className="text-rose">02</span> Quando?
+          <span className="text-slate">02</span> Quando?
         </legend>
-        <p className="mt-1 text-sm text-mocha">Indicativo: ti confermiamo noi l&apos;orario.</p>
+        <p className="mt-1 text-sm text-stone">Indicativo: ti confermiamo noi l&apos;orario.</p>
         <div className="mt-5 max-w-xs">
           <label htmlFor="f-data" className="mb-2 block text-sm font-semibold">
             Giorno
@@ -219,7 +219,7 @@ export function BookingForm() {
           />
           <ErrorText id="e-data" msg={errors.data} />
           {date && day && !day.open && !errors.data && (
-            <p className="mt-2 text-sm font-medium text-rose">
+            <p className="mt-2 text-sm font-medium text-slate">
               Il {day.label.toLowerCase()} siamo chiusi: scegli un giorno da martedì a sabato.
             </p>
           )}
@@ -234,7 +234,7 @@ export function BookingForm() {
               {slots.map((t, i) => (
                 <label
                   key={t}
-                  className={`${chip} text-center tabular-nums ${time === t ? chipOn : chipOff} has-focus-visible:ring-2 has-focus-visible:ring-rose`}
+                  className={`${chip} text-center tabular-nums ${time === t ? chipOn : chipOff} has-focus-visible:ring-2 has-focus-visible:ring-slate`}
                 >
                   <input
                     id={i === 0 ? "f-orario" : undefined}
@@ -260,7 +260,7 @@ export function BookingForm() {
       {/* 3. Dati */}
       <fieldset>
         <legend className="flex items-baseline gap-3 font-display text-2xl uppercase">
-          <span className="text-rose">03</span> I tuoi dati
+          <span className="text-slate">03</span> I tuoi dati
         </legend>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
           <div className="sm:col-span-2">
@@ -297,7 +297,7 @@ export function BookingForm() {
           </div>
           <div>
             <label htmlFor="f-email" className="mb-2 block text-sm font-semibold">
-              Email <span className="font-normal text-mocha">(facoltativa)</span>
+              Email <span className="font-normal text-stone">(facoltativa)</span>
             </label>
             <input
               id="f-email"
@@ -317,7 +317,7 @@ export function BookingForm() {
             </p>
             <div className="flex gap-2">
               {(["si", "no"] as const).map((v) => (
-                <label key={v} className={`${chip} ${firstTime === v ? chipOn : chipOff} has-focus-visible:ring-2 has-focus-visible:ring-rose`}>
+                <label key={v} className={`${chip} ${firstTime === v ? chipOn : chipOff} has-focus-visible:ring-2 has-focus-visible:ring-slate`}>
                   <input
                     type="radio"
                     name="prima"
@@ -332,7 +332,7 @@ export function BookingForm() {
           </div>
           <div className="sm:col-span-2">
             <label htmlFor="f-note" className="mb-2 block text-sm font-semibold">
-              Note <span className="font-normal text-mocha">(facoltative)</span>
+              Note <span className="font-normal text-stone">(facoltative)</span>
             </label>
             <textarea
               id="f-note"
@@ -348,7 +348,7 @@ export function BookingForm() {
 
       {/* Privacy + invio */}
       <div>
-        <label htmlFor="f-privacy" className="flex cursor-pointer items-start gap-3 text-sm text-mocha">
+        <label htmlFor="f-privacy" className="flex cursor-pointer items-start gap-3 text-sm text-stone">
           <input
             id="f-privacy"
             type="checkbox"
@@ -356,7 +356,7 @@ export function BookingForm() {
             onChange={(e) => setPrivacy(e.target.checked)}
             aria-invalid={!!errors.privacy}
             aria-describedby={errors.privacy ? "e-privacy" : undefined}
-            className="mt-0.5 h-5 w-5 shrink-0 accent-cocoa"
+            className="mt-0.5 h-5 w-5 shrink-0 accent-ink"
           />
           Acconsento al trattamento dei miei dati per essere ricontattato/a riguardo a questa prenotazione.
         </label>
@@ -364,7 +364,7 @@ export function BookingForm() {
 
         <button
           type="submit"
-          className="btn group mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-cocoa px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-cream sm:w-auto"
+          className="btn group mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-paper sm:w-auto"
         >
           Invia richiesta
           <svg viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4 fill-none stroke-current stroke-2 transition-transform duration-300 group-hover:translate-x-1">
