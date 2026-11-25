@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KM Hair Beauty & Barber — mock sito vetrina
 
-## Getting Started
-
-First, run the development server:
+Anteprima (noindex) del sito per KM Hair Beauty & Barber, Via Giuseppe Mazzini 25b, Cassano Magnago (VA).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # build statica
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Dove si modifica cosa
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `app/content.ts` — tutti i testi e i dati: servizi, orari, telefoni, indirizzo, servizi accessori.
+- `app/page.tsx` — sezioni della home.
+- `app/prenota/` — pagina "Prenota" con il modulo (`booking-form.tsx`). Il modulo controlla i campi, propone
+  orari ogni 30 minuti in base al giorno scelto e blocca lunedì e domenica. **Non è ancora collegato:** dopo l'invio
+  mostra un riepilogo con "Invia via email" (apre la mail già compilata) e "Chiama". Per collegarlo davvero: Resend
+  o un servizio di prenotazioni.
+- `app/ui.tsx` — logo, icone e footer condivisi tra le pagine.
+- `app/hours.tsx` — tabella orari, con il giorno di oggi evidenziato e lo stato "Aperto ora".
+- `app/globals.css` — palette (crema, cipria, rosa, cacao) e animazioni.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Foto
 
-## Learn More
+In `public/foto/` per ora ci sono foto segnaposto da Unsplash (licenza libera, crediti in `public/foto/CREDITS.md`).
+Vanno sostituite con le foto reali del salone usando gli stessi nomi (`.avif`, `.webp`, `.jpg` o `.png`).
+Se un file manca, al suo posto compare un riquadro neutro con il monogramma "KM".
 
-To learn more about Next.js, take a look at the following resources:
+## Animazioni
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sono tutte in `app/globals.css`, solo CSS: entrata scaglionata dell'hero, comparsa delle sezioni allo scroll
+(`.reveal`, con animazioni legate allo scroll; sui browser che non le supportano il contenuto resta visibile),
+header che diventa pieno allo scroll e micro-interazioni sui bottoni. Con "riduci movimento" attivo sono tutte spente.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| File | Dove compare |
+|------|--------------|
+| `hero` | Hero, a destra (verticale) |
+| `hair` | Card servizi "Hair" |
+| `barber` | Card servizi "Barber" (un degradè) |
+| `beauty` | Card servizi "Beauty" (nail art o trucco) |
+| `salone-1` … `salone-5` | Galleria "Dal salone" (formato 3:4) |
 
-## Deploy on Vercel
+Fonti: profilo Google Maps, Instagram e Facebook del salone. Vanno bene per un mock mostrato solo al salone; per andare online servono il permesso e gli originali.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Da verificare con il salone
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Colori: la palette segue il riferimento di stile, non è ancora presa da insegna o logo.
+- Recensioni e link social: non inseriti, perché non ancora raccolti.
+- Il numero di cellulare è l'azione principale ("Chiama"); va confermato quale numero preferiscono e se usano WhatsApp.

@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #fbf1ec;
+  --color-blush: #f4dcd5;
+  --color-pink: #e8a0ac;
+  --color-rose: #b04a62; /* rosa scuro per testo su crema: contrasto ≥ 4.5:1 */
+  --color-cocoa: #2a1a16;
+  --color-mocha: #6b5550;
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-anton);
+  --font-script: var(--font-pinyon);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: clip;
+  background: var(--color-cream);
+  color: var(--color-cocoa);
+}
+
+/* ---------- Movimento: easing unico, durate brevi ---------- */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+}
+
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes img-in {
+  from {
+    clip-path: inset(0 0 0 100%);
+    transform: scale(1.06);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgb(232 160 172 / 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgb(232 160 172 / 0);
+  }
+}
+
+/* Entrata al caricamento, scaglionata con --i */
+.enter {
+  animation: fade-up 0.9s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+.enter-line {
+  animation: line-up 1s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+.enter-img {
+  animation: img-in 1.4s var(--ease-out) 0.15s both;
+}
+.enter-bar {
+  animation: bar-in 0.7s var(--ease-out) 1s both;
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.8s ease-out infinite;
+}
+
+/* Modulo di prenotazione */
+.fade-in {
+  animation: fade-up 0.6s var(--ease-out) both;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.draw path {
+  stroke-dasharray: 24;
+  animation: draw 0.6s var(--ease-out) 0.25s both;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* Bottoni: leggero sollevamento + alone */
+.btn {
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    background-color 0.3s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -14px rgb(42 26 22 / 0.55);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Link del menu: linea che si disegna da sinistra */
+.link-line {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  padding-bottom: 4px;
+  transition:
+    background-size 0.4s var(--ease-out),
+    color 0.3s;
+}
+.link-line:hover {
+  background-size: 100% 1px;
+}
+
+/* Animazioni legate allo scroll: solo dove supportate, altrimenti tutto resta visibile */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+
+  .hero-parallax {
+    animation: parallax linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 100vh;
+  }
+
+  @keyframes parallax {
+    from {
+      transform: scale(1.08) translateY(0);
+    }
+    to {
+      transform: scale(1.08) translateY(7%);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .header-scroll {
+      animation:
+        fade-up 0.9s var(--ease-out) both,
+        header-solid linear both;
+      animation-timeline: auto, scroll(root);
+      animation-range: normal, 0 140px;
+    }
+    @keyframes header-solid {
+      from {
+        background-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
 }
